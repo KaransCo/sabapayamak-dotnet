@@ -23,6 +23,7 @@ namespace SabaPayamak
         private const string MESSAGE_GET_URL = "/api/v1/messages";
         private const string MESSAGE_NUMBER_URL = "/api/v1/messages/number";
         private const string MESSAGE_SEND_URL = "/api/v1/message";
+        private const string MESSAGE_SEND_URL_GET = "/api/v1/message";
         private const string MESSAGE_DELIVERY_URL = "/api/v1/deliveries";
         private const string RECIVED_MESSAGE_DATE_URL = "/api/v1/recived-messages";
         private const string RECIVED_MESSAGE_NUMBER_URL = "/api/v1/recived-messages";
@@ -108,6 +109,11 @@ namespace SabaPayamak
             var content = JsonConvert.SerializeObject(sendViewModel);
             return Post(_apiUrl + MESSAGE_SEND_URL, content, token);
         }
+        public string SendMessageWithoutToken(string username, string password,string from,string text, string numbers)
+        {
+            string fullpath = _apiUrl + MESSAGE_SEND_URL_GET + $"?UserName={username}&Password={password}&From={from}&To={numbers}&Text={text}";
+            return GetWithoutToken(fullpath);
+        }
 
         public string GetDelivery(long messageId, string token)
         {
@@ -179,6 +185,25 @@ namespace SabaPayamak
                 using (var client = new HttpClient())
                 {
                     client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", key);
+                    var result = client.GetAsync(path).Result;
+                    var res = result.Content.ReadAsStringAsync().Result;
+                    return res;
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+
+        }
+
+        private static string GetWithoutToken(string path)
+        {
+            try
+            {
+                using (var client = new HttpClient())
+                {
                     var result = client.GetAsync(path).Result;
                     var res = result.Content.ReadAsStringAsync().Result;
                     return res;
