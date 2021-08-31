@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>1.01</version>
+    <title>SabaPayamak</title>
+    <authors>Karans Co</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/KaransCo/sabapayamak-dotnet</projectUrl>
+    <description>.net sdk for sabapayamak sdk</description>
+    <releaseNotes>Add Send Method Without Token</releaseNotes>
+    <copyright>Copyright ©  2021</copyright>
+    <tags>Sabapayamak Rest API SMS Karans SDK</tags>
+  </metadata>
+</package>
