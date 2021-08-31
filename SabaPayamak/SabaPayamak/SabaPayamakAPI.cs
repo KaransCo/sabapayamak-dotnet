@@ -22,7 +22,7 @@ namespace SabaPayamak
         private const string MESSAGE_DATE_URL = "/api/v1/messages";
         private const string MESSAGE_GET_URL = "/api/v1/messages";
         private const string MESSAGE_NUMBER_URL = "/api/v1/messages/number";
-        private const string MESSAGE_SEND_URL = "/api/v1/messages";
+        private const string MESSAGE_SEND_URL = "/api/v1/message";
         private const string MESSAGE_DELIVERY_URL = "/api/v1/deliveries";
         private const string RECIVED_MESSAGE_DATE_URL = "/api/v1/recived-messages";
         private const string RECIVED_MESSAGE_NUMBER_URL = "/api/v1/recived-messages";
